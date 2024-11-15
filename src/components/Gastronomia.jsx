@@ -1,25 +1,71 @@
 import React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
 
 const GastronomiaSection = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  
+  const images = [
+    '/assets/sobremesa2.png',
+    '/assets/prato.jpg',
+    '/assets/prato1.jpg',
+    '/assets/prato2.jpg',
+    '/assets/prato3.jpg',
+  ];
+
+  // Função para ir para imagem anterior
+  const handlePrevious = () => {
+    setCurrentIndex((prev) => 
+      prev === 0 ? images.length - 1 : prev - 1
+    );
+  };
+
+  // Função para ir para próxima imagem
+  const handleNext = () => {
+    setCurrentIndex((prev) => 
+      prev === images.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 4000); 
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div className="relative w-full h-[600px] bg-orange-500">
       <div className="w-full py-3 px-6 flex justify-between items-center">
         <img 
           src="/assets/talheres1.png" 
           alt="Menu" 
-          className="w-12 h-12"
+          className="w-12 h-12 cursor-pointer transform transition-transform duration-300 hover:scale-110"
         />
         
         <img 
           src="/assets/dino-jungle.png" 
           alt="Dino Jungle" 
-          className="h-8"
+          className="h-8 cursor-pointer transform transition-transform duration-300 hover:scale-110"
         />
         
         <div className="flex gap-4">
-          <img src="/assets/insta1.png" alt="Instagram" className="w-5 h-5" />
-          <img src="/assets/face1.png" alt="Facebook" className="w-5 h-5" />
-          <img src="/assets/youtube1.png" alt="YouTube" className="w-5 h-5" />
+          <img 
+            src="/assets/insta1.png" 
+            alt="Instagram" 
+            className="w-5 h-5 cursor-pointer transform transition-transform duration-300 hover:scale-110"
+          />
+          <img 
+            src="/assets/face1.png" 
+            alt="Facebook" 
+            className="w-5 h-5 cursor-pointer transform transition-transform duration-300 hover:scale-110"
+          />
+          <img 
+            src="/assets/youtube1.png" 
+            alt="YouTube" 
+            className="w-5 h-5 cursor-pointer transform transition-transform duration-300 hover:scale-110"
+          />
         </div>
       </div>
 
@@ -32,18 +78,48 @@ const GastronomiaSection = () => {
             >
               GASTRONOMIA
             </div>
-            <div className="relative ml-4 mt-32">
+            <div className="relative ml-4 mt-22">
               <img 
-                src="/assets/pegadasdino.png" 
+                src="/assets/pegadapretabaixo.png" 
                 alt="Pegada" 
-                className="w-16"
+                className="w-8 ml-12"
+                style={{ 
+                  filter: 'invert(13%) sepia(90%) saturate(5858%) hue-rotate(357deg) brightness(97%) contrast(113%)',
+                  opacity: '0.9'
+                }}
+              />
+              <img 
+                src="/assets/pegadapretabaixo.png" 
+                alt="Pegada" 
+                className="w-8"
+                style={{ 
+                  filter: 'invert(13%) sepia(90%) saturate(5858%) hue-rotate(357deg) brightness(97%) contrast(113%)',
+                  opacity: '0.9'
+                }}
+              />
+              <img 
+                src="/assets/pegadapretabaixo.png" 
+                alt="Pegada" 
+                className="w-8 ml-12"
                 style={{ 
                   filter: 'invert(13%) sepia(90%) saturate(5858%) hue-rotate(357deg) brightness(97%) contrast(113%)',
                   opacity: '0.9'
                 }}
               />
             </div>
+         
           </div>
+          <div className="relative ml-4 ">
+              <img 
+                src="/assets/pegadapretabaixo.png" 
+                alt="Pegada" 
+                className="w-8 ml-12"
+                style={{ 
+                  filter: 'invert(13%) sepia(90%) saturate(5858%) hue-rotate(357deg) brightness(97%) contrast(113%)',
+                  opacity: '0.9'
+                }}
+              />
+            </div>
         </div>
 
         <div className="absolute w-full h-full flex items-center pl-40">
@@ -70,7 +146,10 @@ const GastronomiaSection = () => {
               </p>
 
               <div className="flex gap-24">
-                <div className="flex flex-col items-center">
+                <div 
+                  className="flex flex-col items-center cursor-pointer"
+                  onClick={handlePrevious}
+                >
                   <img 
                     src="/assets/anterior.png" 
                     alt="Anterior" 
@@ -78,7 +157,10 @@ const GastronomiaSection = () => {
                   />
                   <span className="text-white text-sm">ANTERIOR</span>
                 </div>
-                <div className="flex flex-col items-center">
+                <div 
+                  className="flex flex-col items-center cursor-pointer"
+                  onClick={handleNext}
+                >
                   <img 
                     src="/assets/proximo.png" 
                     alt="Próximo" 
@@ -105,11 +187,18 @@ const GastronomiaSection = () => {
                  opacity: '0.8'
                }} />
           
-          <img 
-            src="/assets/sobremesa2.png" 
-            alt="Drink especial" 
-            className="absolute right-24 top-1/2 transform -translate-y-1/2 z-10 w-[300px]"
-          />
+          <AnimatePresence mode='wait'>
+            <motion.img 
+              key={currentIndex}
+              src={images[currentIndex]}
+              alt="Prato especial"
+              className="absolute right-24 top-1/2 transform -translate-y-1/2 z-10 w-[300px]"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+            />
+          </AnimatePresence>
         </div>
       </div>
     </div>

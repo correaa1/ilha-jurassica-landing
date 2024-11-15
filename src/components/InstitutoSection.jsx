@@ -5,19 +5,19 @@ const InstitutoSection = () => {
     <div className="relative w-full bg-[#F5E6D3] overflow-hidden">
       <section className="relative min-h-screen">
         <div className="absolute top-12 left-6">
-          <div className="flex flex-row items-start gap-1">
+          <div className="flex flex-row  gap-1">
+            
             <span className="text-7xl font-extrabold [writing-mode:vertical-lr] rotate-180">
-              INSTITUTO
+              INSTITUTO ZUCKY
             </span>
-            <span className="text-7xl font-extrabold [writing-mode:vertical-lr] rotate-180">
-              ZUCKY
-            </span>
-            <div className="ml-2">
+            <div className="ml-2 flex justify-center ">
               <span className="text-4xl font-light [writing-mode:vertical-lr] rotate-180">
                 & NOSSA HISTÓRIA
               </span>
             </div>
+           
           </div>
+          
         </div>
 
         <div className="relative w-full max-w-7xl mx-auto px-4">

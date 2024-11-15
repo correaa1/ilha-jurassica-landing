@@ -72,10 +72,10 @@ const Contato = () => {
         </div>
 
         {/* Botões laterais */}
-        <div className="absolute  right-8 top-1/2 -translate-y-1/2 flex flex-col gap-4">
+        <div className="absolute right-8 top-1/2 -translate-y-1/2 flex flex-col gap-4">
           {/* Ícone maior do cardápio */}
           <div className="flex justify-end mb-4">
-            <button className="bg-[#FF6B00] rounded-full ">
+            <button className="bg-[#FF6B00] rounded-full transform transition-transform duration-300 hover:scale-110">
               <img 
                 src="/assets/menu-cardapio.png" 
                 alt="Cardápio" 
@@ -85,11 +85,11 @@ const Contato = () => {
           </div>
 
           {/* Botões existentes */}
-          <div className="flex items-center">
+          <div className="flex items-center group hover:scale-110 transition-transform duration-300">
             <button className="text-white text-right px-6 py-2 rounded-l-full w-44">
               Reservar Mesa
             </button>
-            <button className="bg-[#FF6B00] rounded-full -ml-3 ">
+            <button className="bg-[#FF6B00] rounded-full -ml-3">
               <img 
                 src="/assets/reservar.png" 
                 alt="Reservar" 
@@ -98,11 +98,11 @@ const Contato = () => {
             </button>
           </div>
 
-          <div className="flex items-center">
+          <div className="flex items-center group hover:scale-110 transition-transform duration-300">
             <button className="text-white text-right px-6 py-2 rounded-l-full w-44">
               Delivery
             </button>
-            <button className="bg-[#FF6B00] rounded-full -ml-3 ">
+            <button className="bg-[#FF6B00] rounded-full -ml-3">
               <img 
                 src="/assets/delivery.png" 
                 alt="Delivery" 
@@ -111,11 +111,11 @@ const Contato = () => {
             </button>
           </div>
 
-          <div className="flex items-center">
-            <button className=" text-right text-white px-6 py-2 rounded-l-full w-44">
+          <div className="flex items-center group hover:scale-110 transition-transform duration-300">
+            <button className="text-right text-white px-6 py-2 rounded-l-full w-44">
               Evento Privado
             </button>
-            <button className="bg-[#FF6B00] rounded-full -ml-3 ">
+            <button className="bg-[#FF6B00] rounded-full -ml-3">
               <img 
                 src="/assets/evento.png" 
                 alt="Evento" 
@@ -124,11 +124,11 @@ const Contato = () => {
             </button>
           </div>
 
-          <div className="flex items-center">
+          <div className="flex items-center group hover:scale-110 transition-transform duration-300">
             <button className="text-white text-right px-6 py-2 rounded-l-full w-44">
               Fale com o Dino
             </button>
-            <button className="bg-green-500 rounded-full -ml-3 ">
+            <button className="bg-green-500 rounded-full -ml-3">
               <img 
                 src="/assets/whatsapp.png" 
                 alt="WhatsApp" 

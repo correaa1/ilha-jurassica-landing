@@ -93,20 +93,24 @@ const ExperienciaPreHistorica = () => {
                   alt="Ambiente com dinossauro"
                   className="w-[250px]"
                 />
-                <div className="flex flex-col items-center gap-8 ml-4">
+                
+                <div className="flex flex-col items-center gap-8">
                   <img 
                     src="/assets/pegadapreta.png" 
                     alt="Pegada"
-                    className="w-20"
-                    style={{ height: 'auto' }}
-                  />
-                  <img 
-                    src="/assets/menubranco.png" 
-                    alt="Menu"
-                    className="w-20 ml-2"
-                    style={{ height: 'auto' }}
+                    className="w-20 ml-24 mt-12" 
+                    style={{ height: 'auto '  }}
                   />
                 </div>
+              </div>
+
+              <div className="ml-auto mt-12 flex items-center ">
+                <img 
+                  src="/assets/menubranco.png" 
+                  alt="Menu"
+                  className="w-20 "
+                  style={{ height: 'auto' }}
+                />
               </div>
             </div>
           </div>
