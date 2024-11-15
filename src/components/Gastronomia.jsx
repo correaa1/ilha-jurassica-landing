@@ -11,7 +11,7 @@ const GastronomiaSection = () => {
         />
         
         <img 
-          src="/assets/logo-small.png" 
+          src="/assets/dino-jungle.png" 
           alt="Dino Jungle" 
           className="h-8"
         />
